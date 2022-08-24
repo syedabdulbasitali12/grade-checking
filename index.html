@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" href="logo.jpg">
+    <link rel="icon" href="logo.jpg">
+    <title>Grade calculator</title>
+</head>
+<style>
+   body {
+  background-color: rgb(155, 58, 147);
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box
+}
+
+div.container1{
+    max-width: 1400px;
+    margin: auto;
+}
+
+div.container2{
+    max-width: 1400px;
+    margin: auto;
+}
+
+.container2 {
+    background-color: #cccccc;
+    height: 520px;
+  padding: 16px;
+  background-color: white;
+  border-radius: 50px;
+}
+
+input[type=number] {
+  width: 20%;
+  display: inline-block;
+  background: #f1f1f1;
+  font-size: 15px;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border-radius: 25px;
+  height: 10px;
+  border-color: #f1f1f1;
+}
+
+button {
+  text-align: center;
+  background-color: rgb(155, 58, 147);
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border-radius: 25px;
+  width: 10%;
+  opacity: 0.9;
+  height: 50px;
+  border-color:rgb(155, 58, 147); ;
+}
+
+h1{
+  text-decoration: underline;
+  -webkit-text-decoration-color: rgb(155, 58, 147); /* Safari */  
+  text-decoration-color:rgb(155, 58, 147);
+  background-color: rgb(255, 255, 255);
+  border-radius: 50px;
+  width: 1400px;
+}
+
+form{
+    font-size: 20px;
+}
+u{
+text-decoration: underline;
+  -webkit-text-decoration-color: rgb(155, 58, 147); /* Safari */  
+  text-decoration-color:rgb(155, 58, 147);
+
+}
+
+</style>
+<body>
+    <div class="container1">
+    <h1><center><i><b>Basit's Grade Calculator</b></i></center></h1>
+</div>
+    <div class="container2">
+    <form onsubmit="doperc(); return false">
+        <b>Total Marks:<br> <input id="num1" type="number" required placeholder="Enter total Marks">
+        <br><br>
+        <b></b>Obtained Marks:<br> <input id="num2" type="number" required placeholder="Enter obtained Marks">
+        <br><br>
+        <button type="submit">Check</button>
+    </form>
+    <h3 id="result"></h3>
+</div>
+
+    <script>
+        alert("Hey! Welcome to Basit's grade calculator")
+        function doperc()
+        {
+            let firstnumber = Number(document.querySelector("#num1").value)
+            let secondnumber = +document.querySelector("#num2").value
+            let resultElement = document.querySelector("#result")
+            console.log(firstnumber,secondnumber);
+            let percentage = (secondnumber/ firstnumber) * 100;
+
+            if (percentage <= 100 && percentage >= 80) {
+                resultElement.innerHTML = `Your Grade is <u>A+</u>. <br> Your percentage is <u>${percentage.toFixed(2)}%</u>. <br>Outstanding! You are <u>Passed.</u> `
+            } else if (percentage <= 79 && percentage >= 70) {
+                resultElement.innerHTML = `Your Grade is <u>A</u>. <br> Your percentage is <u>${percentage.toFixed(2)}%</u>. <br>Excellent! You are <u>Passed.</u> `
+            } else if (percentage <= 69 && percentage >= 60) {
+                resultElement.innerHTML = `Your Grade is <u>B</u>. <br> Your percentage is <u>${percentage.toFixed(2)}%</u>. <br>Good! You are <u>Passed.</u> `
+            } else if (percentage <= 59 && percentage >= 50) {
+                resultElement.innerHTML = `Your Grade is <u>C</u>. <br> Your percentage is <u>${percentage.toFixed(2)}%</u>. <br>Average! You are <u>Passed.</u> `
+            } else if (percentage <= 49 && percentage >= 40) {
+                resultElement.innerHTML = `Your Grade is <u>D.</u> <br> Your percentage is <u>${percentage.toFixed(2)}%</u>. <br>Below Average! You are <u>Passed.</u> `
+            } else {
+                resultElement.innerHTML = `Your Grade is <u>F</u>.<br> Your percentage is <u>${percentage.toFixed(2)}%</u>. <br>Needs Improvement! You are <u>Failed.</u> `
+            }  
+        }
+                 
+    </script>
+</body>
+</html>
